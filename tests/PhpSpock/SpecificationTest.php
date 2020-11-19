@@ -30,9 +30,9 @@ use \PhpSpock\Specification\SimpleBlock;
 use \PhpSpock\Specification\ThenBlock;
 use \PhpSpock\Specification\WhereBlock;
 
-class SpecificationTest extends \PHPUnit_Framework_TestCase {
+class SpecificationTest extends \PHPUnit\Framework\TestCase {
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
 

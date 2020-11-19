@@ -36,7 +36,7 @@ class ExpressionTransformer {
         $expressionLeft = $expression;
         $expressionRight = '';
         if (strpos($expression, ' >> ') !== false) {
-            list($expressionLeft,$expressionRight) = explode(' >> ', $expression);
+            list($expressionLeft, $expressionRight) = explode(' >> ', $expression);
         }
 
         if (preg_match('/^
@@ -70,6 +70,15 @@ class ExpressionTransformer {
                 }
 
             return $mockExpr;
+        } else if ($expressionRight) {
+            /*
+             * If there is an expression on the right side of >> we should set up an expectation
+             * for the mock regardless of whether or not a cardinality argument is present.
+             *
+             * This supports mock verification on things like arrays where 1 * $array is not valid PHP syntax.
+             * We modify the expression to default to (1.._) for "at least once" for maximum compatibility.
+             */
+            return $this->transform("(1.._) * $expression");
         } else {
             return $expression;
         }

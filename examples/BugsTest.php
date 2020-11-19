@@ -23,7 +23,7 @@ namespace MyExamples;
 
 use \PhpSpock\Adapter\PhpUnitAdapter as PhpSpock;
 
-class BugsTest extends \PHPUnit_Framework_TestCase
+class BugsTest extends \PHPUnit\Framework\TestCase
 {
     protected function runTest()
     {
@@ -52,7 +52,7 @@ class BugsTest extends \PHPUnit_Framework_TestCase
         $a == 3;
     }
 
-    function test__spec_debug_testIndex_Variant1() { 
+    function test__spec_debug_testIndex_Variant0() { 
 
         /**
          * Setup block

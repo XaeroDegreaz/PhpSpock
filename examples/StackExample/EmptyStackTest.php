@@ -17,7 +17,7 @@ class EmptyStackTest extends IntegrationExampleTestCase {
      */
     public $stack;
 
-    protected function setUp()
+    protected function setUp():void
     {
         parent::setUp();
 

@@ -29,21 +29,21 @@ namespace PhpSpock;
 /**
  * @group several-when
  */
-class SpecificationParserTest extends \PHPUnit_Framework_TestCase {
+class SpecificationParserTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var \PhpSpock\SpecificationParser
      */
     protected $parser;
 
-    protected function setUp()
+    protected function setUp():void
     {
         parent::setUp();
 
         $this->parser = new SpecificationParser();
     }
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
     }
@@ -126,8 +126,8 @@ class SpecificationParserTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals(2, count($varDeclarations));
         $this->assertArrayHasKey('sym', $varDeclarations);
         $this->assertArrayHasKey('result', $varDeclarations);
-        $this->assertEquals('', $varDeclarations['sym']);
-        $this->assertEquals('MyClass', $varDeclarations['result']);
+        $this->assertEquals(array('type'=>'Mock', 'class'=>''), $varDeclarations['sym']);
+        $this->assertEquals(array('type'=>'Mock', 'class'=>'MyClass'), $varDeclarations['result']);
 
         $this->assertEquals('setup', $blocks[0]['name']);
         $this->assertEquals('$foo = \'123\';', $blocks[0]['code']);
@@ -159,10 +159,10 @@ class SpecificationParserTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue(is_array($whenThenPairs));
         $this->assertEquals(2, count($whenThenPairs));
 
-        $this->assertInstanceOf('PhpSpock\Specification\SimpleBlock', $whenThenPairs[0]->getWhenBlock());
+        $this->assertInstanceOf('PhpSpock\Specification\SetupBlock', $whenThenPairs[0]->getWhenBlock());
         $this->assertInstanceOf('PhpSpock\Specification\ThenBlock', $whenThenPairs[0]->getThenBlock());
 
-        $this->assertInstanceOf('PhpSpock\Specification\SimpleBlock', $whenThenPairs[1]->getWhenBlock());
+        $this->assertInstanceOf('PhpSpock\Specification\SetupBlock', $whenThenPairs[1]->getWhenBlock());
         $this->assertInstanceOf('PhpSpock\Specification\ThenBlock', $whenThenPairs[1]->getThenBlock());
 
         $this->assertInstanceOf('PhpSpock\Specification\SimpleBlock', $result->getCleanupBlock());

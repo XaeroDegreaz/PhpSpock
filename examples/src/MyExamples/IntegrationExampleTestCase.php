@@ -24,7 +24,7 @@ namespace MyExamples;
 use \PhpSpock\Adapter\PhpUnitAdapter as PhpSpock;
 
 
-class IntegrationExampleTestCase extends \PHPUnit_Framework_TestCase
+class IntegrationExampleTestCase extends \PHPUnit\Framework\TestCase
 {
     protected function runTest()
     {
