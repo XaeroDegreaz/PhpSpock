@@ -23,7 +23,7 @@ namespace MyExamples;
 
 use \PhpSpock\Adapter\PhpUnitAdapter as PhpSpock;
 
-class WithoutIntegrationTest extends \PHPUnit_Framework_TestCase
+class WithoutIntegrationTest extends \PHPUnit\Framework\TestCase
 {
     protected function runTest()
     {

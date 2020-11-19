@@ -26,9 +26,9 @@
 
 namespace PhpSpock\Specification;
 
-class SetupBlockTest extends \PHPUnit_Framework_TestCase {
+class SetupBlockTest extends \PHPUnit\Framework\TestCase {
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
 

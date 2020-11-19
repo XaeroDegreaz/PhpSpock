@@ -30,14 +30,14 @@ class FixtureExampleTest extends IntegrationExampleTestCase
      */
     public $myResource;
 
-    protected function setUp()
+    protected function setUp():void
     {
         parent::setUp();
 
         $this->myResource = new Calc();
     }
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
 

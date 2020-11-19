@@ -26,9 +26,9 @@
 
 namespace PhpSpock\Specification\ThenBlock;
 
-class ExpressionTest extends \PHPUnit_Framework_TestCase {
+class ExpressionTest extends \PHPUnit\Framework\TestCase {
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
 

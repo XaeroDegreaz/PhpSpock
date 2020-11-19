@@ -26,9 +26,9 @@
 
 namespace PhpSpock\Specification;
 
-class ExpressionTransformerTest extends \PHPUnit_Framework_TestCase {
+class ExpressionTransformerTest extends \PHPUnit\Framework\TestCase {
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
 
@@ -69,6 +69,10 @@ class ExpressionTransformerTest extends \PHPUnit_Framework_TestCase {
             array('0 * $a->getFoo()', $simplePrefix.'->never()'. $simpleSuffix ),
             array('(0.._) * $a->getFoo()', $simplePrefix.'->zeroOrMoreTimes()'. $simpleSuffix ),
             array('1 * $a->getFoo() >> true', $simplePrefix .'->once()->andReturn(true)'. $simpleSuffix ),
+            array('$a->getFoo() >> true', $simplePrefix .'->atLeast()->times(1)->andReturn(true)'. $simpleSuffix ),
+
+            // Verify that things not matching cardinality rules return the original expression unaltered.
+            array('$a->getFoo()', '$a->getFoo()' ),
 
             // alternative syntax
             array('+1 * $a->getFoo()', $simplePrefix.'->atLeast()->times(1)'. $simpleSuffix ),

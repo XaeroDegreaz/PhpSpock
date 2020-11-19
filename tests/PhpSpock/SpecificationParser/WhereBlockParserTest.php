@@ -26,21 +26,21 @@
 
 namespace PhpSpock\SpecificationParser;
  
-class WhereBlockParserTest extends \PHPUnit_Framework_TestCase {
+class WhereBlockParserTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var \PhpSpock\SpecificationParser\WhereBlockParser
      */
     protected $parser;
 
-    protected function setUp()
+    protected function setUp():void
     {
         parent::setUp();
 
         $this->parser = new WhereBlockParser();
     }
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
     }

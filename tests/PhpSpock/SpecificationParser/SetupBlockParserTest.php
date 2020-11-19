@@ -26,21 +26,21 @@
 
 namespace PhpSpock\SpecificationParser;
  
-class SetupBlockParserTest extends \PHPUnit_Framework_TestCase {
+class SetupBlockParserTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var \PhpSpock\SpecificationParser\SetupBlockParser
      */
     protected $parser;
 
-    protected function setUp()
+    protected function setUp():void
     {
         parent::setUp();
 
         $this->parser = new SetupBlockParser();
     }
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
     }

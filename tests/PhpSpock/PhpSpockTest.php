@@ -28,10 +28,10 @@ namespace PhpSpock;
 
 use \PhpSpock\Specification\SimpleBlock;
 
-class PhpSpockTest extends \PHPUnit_Framework_TestCase
+class PhpSpockTest extends \PHPUnit\Framework\TestCase
 {
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         parent::tearDown();
 
@@ -105,7 +105,7 @@ class PhpSpockTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException PHPUnit_Framework_ExpectationFailedException
+     * @expectedException PHPUnit\Framework\ExpectationFailedException
      */
     public function executeSpecificationWithPhpUnitAdapter()
     {

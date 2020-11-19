@@ -1,3 +1,9 @@
+### Notes:
+As of 2020, the original repository at http://github.com/aleczhang/PhpSpock seems unmaintained. I've made some minor updates so that the newest version of PHPUnit namespaces work correctly for the adapter, and made it so that even arrays can be stubbed out without violating PHP's syntax rules.
+
+By default, any mock interaction without an explicit quantity will be implicitly evaluated as `(1.._)` (at least once). Before this change no stubbing happened for expressions like `$a->getFoo() >> 123`.
+
+I've also made some minor updates to some tests to make sure that the new default stubbing for expressions works correctly.
 
 # PhpSpock
 
